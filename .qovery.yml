@@ -1,0 +1,11 @@
+---
+application:
+  name: "inventory-backend"
+  project: "medivent"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-inventory-backend"
+  routes:
+  - application_name: "inventory-backend"
+    paths:
+    - "/*"
