@@ -10,7 +10,7 @@ const port = process.env.port || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.MONGO_URI;
+const uri = process.env.QOVERY_DATABASE_MEDINVENT_DB_CONNECTION_URI;
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
 const con = mongoose.connection;
 con.once('open', () => {
