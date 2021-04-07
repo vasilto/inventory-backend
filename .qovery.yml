@@ -1,0 +1,15 @@
+---
+application:
+  name: "inventory-backend"
+  project: "medinvent-backend"
+  organization: "QoveryCommunity"
+databases:
+- type: "MONGODB"
+  name: "medinvent-db"
+  version: "3.6"
+routers:
+- name: "main-inventory-backend"
+  routes:
+  - application_name: "inventory-backend"
+    paths:
+    - "/*"
