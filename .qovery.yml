@@ -2,10 +2,10 @@
 application:
   name: "inventory-backend"
   project: "medinvent-backend"
-  organization: "medinvent"
+  organization: "QoveryCommunity"
 databases:
 - type: "MONGODB"
-  name: "medinvent"
+  name: "medinvent-db"
   version: "3.6"
 routers:
 - name: "main-inventory-backend"
