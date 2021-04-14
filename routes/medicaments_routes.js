@@ -9,6 +9,18 @@ router.route("/").get((req, res) => {
         .catch(err => res.status(400).json(`Error ${err}`));
 })
 
+//get single medicament by name
+router.route("/:name").get((req, res) => {
+    var medicineName
+    Medicaments.findOne({ 'name': req.params.name })
+        .then(medicament => {
+            if (medicament !== null) {
+                res.json(medicament)
+            } else (res.status(404).json('Error not found'))
+        }
+        ).catch(err => res.status(400).json(`Error ${err}`));
+})
+
 //Create new medicament in the database
 router.route("/add").post((req, res) => {
     const name = req.body.name;
@@ -44,12 +56,12 @@ router.route("/add").post((req, res) => {
 router.route("/delete/:id").delete((req, res) => {
     var medicineName;
     Medicaments.findById(req.params.id).lean().
-        then( res =>{
+        then(res => {
             medicineName = res.name;
         });
     Medicaments.findByIdAndDelete(req.params.id)
-        .then( () => res.json(`Medicament with name: ${medicineName} was deleted`))
-        .catch( err => res.status(400).json(`Error ${err}`));
+        .then(() => res.json(`Medicament with name: ${medicineName} was deleted`))
+        .catch(err => res.status(400).json(`Error ${err}`));
 });
 
 module.exports = router;

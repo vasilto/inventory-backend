@@ -19,5 +19,9 @@ const medicamentsSchema = new Schema({
 
 const Medicaments = mongoose.model('Medicaments', medicamentsSchema);
 
+function findSingleMedicament(medicamentName) {
+    return Medicaments.findOne({name:medicamentName}).exec();    
+}
+
 module.exports = Medicaments;
 
