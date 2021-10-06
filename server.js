@@ -22,4 +22,5 @@ app.use('/medicaments', medicaments);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
+    console.log(`Mongo uri is: ${uri} `)
 })
