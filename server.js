@@ -11,15 +11,18 @@ app.use(cors());
 app.use(express.json());
 
 const uri = process.env.MONGO_URI;
-mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 const con = mongoose.connection;
 con.once('open', () => {
-    console.log(`MongoDB connection established succesfully... yeeeey`)
-})
+    console.log('MongoDB connection established successfully...');
+});
 
 const medicaments = require('./routes/medicaments_routes');
+const patients = require('./routes/patient_route');
+
 app.use('/medicaments', medicaments);
+app.use('/patients', patients);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
-})
+});

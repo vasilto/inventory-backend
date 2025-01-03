@@ -15,6 +15,7 @@ const medicamentsSchema = new Schema({
     isAvailable:{type:Boolean, required: true},
 }, {
     timestamps: true,
+    collection: 'medicaments'
 });
 
 const Medicaments = mongoose.model('Medicaments', medicamentsSchema);
